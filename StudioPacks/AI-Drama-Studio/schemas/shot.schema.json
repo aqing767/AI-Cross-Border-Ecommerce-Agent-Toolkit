@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ai-drama-studio/shot.schema.json",
+  "title": "AI Drama Studio Shot",
+  "type": "object",
+  "required": ["shot_id", "start_seconds", "duration_seconds", "shot_size", "camera_move", "observable_action", "start_state", "end_state", "entity_ids"],
+  "properties": {
+    "shot_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]+$"},
+    "start_seconds": {"type": "number", "minimum": 0},
+    "duration_seconds": {"type": "number", "exclusiveMinimum": 0},
+    "shot_size": {"type": "string"},
+    "camera_angle": {"type": "string"},
+    "camera_move": {"type": "string"},
+    "location_id": {"type": ["string", "null"]},
+    "entity_ids": {"type": "array", "items": {"type": "string"}},
+    "observable_action": {"type": "string", "minLength": 1},
+    "performance": {"type": "string"},
+    "start_state": {"type": "string"},
+    "end_state": {"type": "string"},
+    "dialogue": {"type": "array"},
+    "sound_design": {"type": "string"},
+    "reference_bindings": {"type": "array"},
+    "risk_level": {"enum": ["low", "medium", "high", "critical"]}
+  },
+  "additionalProperties": true
+}
