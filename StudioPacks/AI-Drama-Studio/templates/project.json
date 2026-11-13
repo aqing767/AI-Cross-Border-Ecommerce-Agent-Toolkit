@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "demo-project",
+  "title": "新建 AI 漫剧项目",
+  "status": "planning",
+  "format_profile": {
+    "id": "serial_episode",
+    "aspect_ratio": "9:16",
+    "target_duration_seconds": 90,
+    "language": "zh-CN"
+  },
+  "source": {
+    "type": "original",
+    "rights_status": "owned_or_authorized",
+    "source_uri": null,
+    "notes": ""
+  },
+  "creative": {
+    "logline": "",
+    "genre": [],
+    "audience": "",
+    "visual_style": "待确认",
+    "tone": "",
+    "constraints": []
+  },
+  "model_capabilities": {
+    "status": "unverified",
+    "provider": null,
+    "model_id": null,
+    "max_duration_seconds": null,
+    "max_reference_assets": null,
+    "verified_at": null,
+    "evidence": null
+  },
+  "assets": [],
+  "episodes": []
+}

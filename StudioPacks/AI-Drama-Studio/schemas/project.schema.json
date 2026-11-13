@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ai-drama-studio/project.schema.json",
+  "title": "AI Drama Studio Project",
+  "type": "object",
+  "required": ["schema_version", "project_id", "title", "status", "format_profile", "source", "creative", "assets", "episodes"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "project_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,62}$"},
+    "title": {"type": "string", "minLength": 1},
+    "status": {"enum": ["planning", "writing", "preproduction", "production", "postproduction", "review", "delivered", "paused"]},
+    "format_profile": {
+      "type": "object",
+      "required": ["id", "aspect_ratio", "language"],
+      "properties": {
+        "id": {"enum": ["serial_episode", "micro_drama", "viral_one_take", "grid_moment", "continuous_long_take", "advertisement", "short_film"]},
+        "aspect_ratio": {"type": "string"},
+        "target_duration_seconds": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "language": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "source": {
+      "type": "object",
+      "required": ["type", "rights_status"],
+      "properties": {
+        "type": {"enum": ["original", "adaptation", "benchmark_inspired", "public_topic", "client_supplied"]},
+        "rights_status": {"enum": ["owned_or_authorized", "public_domain_verified", "licensed", "pending", "restricted", "unknown"]},
+        "source_uri": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "creative": {"type": "object"},
+    "model_capabilities": {"type": ["object", "null"]},
+    "assets": {"type": "array", "items": {"type": "object", "required": ["id", "kind", "name", "status"]}},
+    "episodes": {"type": "array", "items": {"type": "object", "required": ["episode_id", "status", "shots"]}}
+  },
+  "additionalProperties": true
+}
